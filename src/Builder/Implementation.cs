@@ -11,8 +11,17 @@ namespace Builder;
  * 5. Director --- uses abstract builder to construct car representations
 **/
 
+/**
+ *** use cases*****
+ * 1. Generating Documents
+ * 2. Building Database queries
+ * 3. Creating Game Characters
+ * 4. Constructing a UI or form
+**/
 
-
+/**
+ * Related Patterns  Abstract factory, Singleton, Composite
+**/
 /// <summary>
 /// Product - Object created by builder
 /// </summary>
