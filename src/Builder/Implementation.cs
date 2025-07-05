@@ -4,7 +4,7 @@ namespace Builder;
 
 /**
 *****Builder Pattern Components******
- * 1. Builder
+ * 1. Builder - can be an interface or abstract class
  * 2. ConcreteBuilderA
  * 3. ConcreteBuilderB
  * 4. Product (e.g car)
@@ -124,6 +124,7 @@ public class Garage
         _builder.BuildFrame();
     }
 
+    
     public void Show()
     {
         Console.WriteLine(_builder?.Car.ToString());
