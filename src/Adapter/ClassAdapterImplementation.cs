@@ -1,4 +1,5 @@
-﻿namespace Adapter;
+﻿
+namespace ClassAdapter;
 
 /**
  *** ADAPTER COMPONENTS ****
@@ -56,7 +57,7 @@ public class City
     }
 
     public string FullName { get; private set; }
-    public long Inhabitants { get; private set; } 
+    public long Inhabitants { get; private set; }
 }
 
 /// <summary>
@@ -67,14 +68,19 @@ public interface ICityAdapter
     City GetCity();
 }
 
-public class CityAdapter : ICityAdapter
+public class CityAdapter : ExternalSystem, ICityAdapter
 {
-    public ExternalSystem ExternalSystem { get; private set; } = new();
+  
     public City GetCity()
     {
-        var cityFromExternalSystem  = ExternalSystem.GetCity();
+        //call into external system class
+        var cityFromExternalSystem = base.GetCity();
+
+        //adapt the CityFromExternalCity to a City
         return new City($"{cityFromExternalSystem.Name}  {cityFromExternalSystem.NickName}",
                              cityFromExternalSystem.Inhabitaants);
     }
 }
+
+
 

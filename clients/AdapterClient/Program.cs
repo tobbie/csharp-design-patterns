@@ -1,4 +1,4 @@
-﻿using Adapter;
+﻿using ClassAdapter;
 using static System.Console;
 
 Title = "Adapter Pattern";
