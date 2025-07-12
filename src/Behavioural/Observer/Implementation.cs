@@ -90,6 +90,7 @@ public class TicketResellerService : ITicketChangeListener
     public void ReceiveTicketChangeNotification(TicketChange ticketChange)
     {
         //update local data store here-------
+        WriteLine();
         WriteLine($"{nameof(TicketResellerService)} notified " +
             $" of ticket change:  artist  {ticketChange.ArtistId}, amount {ticketChange.Amount}");           
     }
@@ -104,6 +105,7 @@ public class TicketStockService : ITicketChangeListener
     public void ReceiveTicketChangeNotification(TicketChange ticketChange)
     {
         //update local data store here-------
+        WriteLine();
         WriteLine($"{nameof(TicketStockService)} notified " +
             $" of ticket change:  artist  {ticketChange.ArtistId}, amount {ticketChange.Amount}");
     }
