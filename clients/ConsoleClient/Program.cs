@@ -1,4 +1,5 @@
 ﻿using ConsoleClient.Examples;
 
 //Test Observer Demo
-ObserverDemo.Run();
+//ObserverDemo.Run();
+StrategyDemo.Run();
