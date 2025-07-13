@@ -1,31 +1,25 @@
 ﻿using static  System.Console;
 using Strategy;
+using System.Net.Http.Headers;
 
-namespace ConsoleClient.Examples
+namespace ConsoleClient.Examples;
+
+static class StrategyDemo
 {
-    static class StrategyDemo
+    public static void Run()
     {
-        public static void Run() 
-        {
-            Title = "The Strategy Pattern";
-            var order = new Order("Oluwatobi Software", "Visual Studio License", 200);
-            order.ExportService = new CsvExportService();
-            order.Export();
+        Title = "The Strategy Pattern";
+        var order = new Order("Oluwatobi Software", "Visual Studio License", 200);
+       
+        order.Export(new CsvExportService());
 
-            order.ExportService = new JsonExportService();
-            order.Export();
+        
+        order.Export(new JsonExportService());
 
-            order.ExportService = new XmlExportService();
-            order.Export();
+       
+        order.Export(new XmlExportService());
 
-            ReadKey();  
-
-
-
-
-
-
-        }
+        ReadKey();
 
     }
 }

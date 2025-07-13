@@ -59,10 +59,15 @@ public class Order
     public string? Description { get; private set; }
     public decimal Amount { get; private set; }
 
-    public IExportService?  ExportService { get; set; }
+    //Strategy pattern variation with property parameter
+    //public IExportService?  ExportService { get; set; } --- 
 
-    public void Export()
+    //Strategy pattern variation with method parameter  ---- I prefer this approach
+    public void Export(IExportService exportService)
     {
-        ExportService?.Export(this);
+        if (exportService == null)
+            throw new ArgumentNullException(nameof(exportService));
+        
+        exportService.Export(this);
     }
 }
