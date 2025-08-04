@@ -1,5 +1,8 @@
 ﻿using ConsoleClient.Examples;
 
-//Test Observer Demo
+//Test Patterns
+
+DecoratorDemo.Run();
+
 //ObserverDemo.Run();
-StrategyDemo.Run();
+//StrategyDemo.Run();

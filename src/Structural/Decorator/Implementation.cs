@@ -1,6 +1,16 @@
-﻿using static System.Console;
-
+﻿using System.Reflection.PortableExecutable;
+using static System.Console;
 namespace Decorator;
+
+
+/**
+ **** DECORATOR COMPONENTS****
+ * 1. Component (interfact or abstract class) - IMailService
+ * 2. ConcreteComponent1, ConcreteComponent2... etc - CloudMailService, OnPremiseMailService
+ * 3. Decorator (abstract class)
+ * 4. ConcreteDecorator1, ConcreteDeocrator2 ....etc --- StatisticsDecorator, MessageDatabaseDecorator
+ * 5  Link to UML -->
+**/
 
 
 /// <summary>
@@ -36,6 +46,8 @@ public class OnPremiseMailService : IMailService
     }
 }
 
+
+
 /// <summary>
 /// Decorator - base wrappper
 /// </summary>
@@ -69,6 +81,29 @@ public class StatisticsDecorator : MailServiceDecoratorBase
     {
         WriteLine($"Collecting statistics in {nameof(StatisticsDecorator)}");
         return base.SendMail(message);
+    }
+}
+
+
+/// <summary>
+/// ConcreteDecorator2
+/// </summary>
+public class MessageDatabaseDecorator : MailServiceDecoratorBase
+{
+    public List<string> SentMessages { get; private set; }  = new List<string>();
+    public MessageDatabaseDecorator(IMailService mailService)
+        : base(mailService)
+    {
+    }
+
+    public override bool SendMail(string message)
+    {
+        if (base.SendMail(message))
+        {
+            SentMessages.Add(message);
+            return true;
+        }
+        return false;
     }
 }
 
