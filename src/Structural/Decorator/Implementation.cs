@@ -1,11 +1,10 @@
-﻿using System.Reflection.PortableExecutable;
-using static System.Console;
+﻿using static System.Console;
 namespace Decorator;
 
 
 /**
  **** DECORATOR COMPONENTS****
- * 1. Component (interfact or abstract class) - IMailService
+ * 1. Component (interface or abstract class) - IMailService
  * 2. ConcreteComponent1, ConcreteComponent2... etc - CloudMailService, OnPremiseMailService
  * 3. Decorator (abstract class)
  * 4. ConcreteDecorator1, ConcreteDeocrator2 ....etc --- StatisticsDecorator, MessageDatabaseDecorator

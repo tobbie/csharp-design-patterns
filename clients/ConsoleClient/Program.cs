@@ -2,7 +2,9 @@
 
 //Test Patterns
 
-DecoratorDemo.Run();
+BridgeDemo.Run();
+
+//DecoratorDemo.Run();
 
 //ObserverDemo.Run();
 //StrategyDemo.Run();

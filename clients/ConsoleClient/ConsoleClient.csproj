@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Behavioural\Observer\Observer.csproj" />
     <ProjectReference Include="..\..\src\Behavioural\Strategy\Strategy.csproj" />
+    <ProjectReference Include="..\..\src\Structural\Bridge\Bridge.csproj" />
     <ProjectReference Include="..\..\src\Structural\Decorator\Decorator.csproj" />
   </ItemGroup>
 
