@@ -11,8 +11,12 @@
     <ProjectReference Include="..\..\src\Behavioural\Observer\Observer.csproj" />
     <ProjectReference Include="..\..\src\Behavioural\Strategy\Strategy.csproj" />
     <ProjectReference Include="..\..\src\Creational\AbstractFactory\AbstractFactory.csproj" />
+    <ProjectReference Include="..\..\src\Creational\Builder\Builder.csproj" />
+    <ProjectReference Include="..\..\src\Creational\FactoryMethod\FactoryMethod.csproj" />
+    <ProjectReference Include="..\..\src\Structural\Adapter\Adapter.csproj" />
     <ProjectReference Include="..\..\src\Structural\Bridge\Bridge.csproj" />
     <ProjectReference Include="..\..\src\Structural\Decorator\Decorator.csproj" />
+    <ProjectReference Include="..\..\src\Structural\Facade\Facade.csproj" />
   </ItemGroup>
 
 </Project>
