@@ -2,8 +2,9 @@
 
 //Test Patterns
 
+SingletonDemo.Run();
 
-PrototypeDemo.Run();
+//PrototypeDemo.Run();
 
 //FactoryMethodDemo.Run();
 //FacadeDemo.Run();
