@@ -1,4 +1,5 @@
 ﻿namespace Prototype;
+using System.Text.Json;
 
 /**
 *****Prototype Pattern Components******
@@ -13,7 +14,7 @@
 public abstract class Person
 {
     public abstract string Name { get; set; }
-    public abstract Person Clone();
+    public abstract Person Clone(bool deepClone);
 }
 
 /// <summary>
@@ -21,15 +22,21 @@ public abstract class Person
 /// </summary>
 public class Manager : Person
 {
-    public override string Name { get;set }
+    public override string Name { get; set; }
 
     public Manager(string name)
     {
-        Name = name;    
+        Name = name;
     }
-    public override Person Clone()
+    public override Person Clone(bool deepClone = false)
     {
-        return (Person)MemberwiseClone();
+        if (deepClone)
+        {
+            //deep copy
+            var objectAsJson = JsonSerializer.Serialize(this);
+            return JsonSerializer.Deserialize<Manager>(objectAsJson);
+        }
+        return (Person)MemberwiseClone(); //shallow copy
     }
 }
 
@@ -46,9 +53,15 @@ public class Employee : Person
         Name = name;
         Manager = manager;
     }
-    public override Person Clone()
+    public override Person Clone(bool deepClone = false)
     {
-        return (Person)MemberwiseClone();
+        if (deepClone)
+        {
+            //deep copy
+            var objectAsJson = JsonSerializer.Serialize(this);
+            return JsonSerializer.Deserialize<Employee>(objectAsJson);
+        }
+        return (Person)MemberwiseClone(); //shallow copy
     }
 }
 

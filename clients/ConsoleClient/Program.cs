@@ -2,11 +2,14 @@
 
 //Test Patterns
 
-FactoryMethodDemo.Run();
-FacadeDemo.Run();
-AdapterDemo.Run();
-BuilderDemo.Run();
-AbstractFactoryDemo.Run();
+
+PrototypeDemo.Run();
+
+//FactoryMethodDemo.Run();
+//FacadeDemo.Run();
+//AdapterDemo.Run();
+//BuilderDemo.Run();
+//AbstractFactoryDemo.Run();
 
 //BridgeDemo.Run();
 
