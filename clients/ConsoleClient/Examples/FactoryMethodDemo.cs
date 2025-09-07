@@ -8,7 +8,7 @@ namespace ConsoleClient.Examples
     {
         public static void Run()
         {
-           Title = "Factory Method";
+            Title = "Factory Method";
 
             var factories = new List<DiscountFactory>();
             factories.Add(new CodeDiscountFactory(Guid.NewGuid()));
