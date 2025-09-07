@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "src\Structural\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "src\Creational\Prototype\Prototype.csproj", "{B21EBD4E-1863-46E5-AD86-D33A4A9ABDB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "src\Creational\Singleton\Singleton.csproj", "{13FF9062-2284-484F-A73F-287DE396E92B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,6 +187,18 @@ Global
 		{B21EBD4E-1863-46E5-AD86-D33A4A9ABDB1}.Release|x64.Build.0 = Release|Any CPU
 		{B21EBD4E-1863-46E5-AD86-D33A4A9ABDB1}.Release|x86.ActiveCfg = Release|Any CPU
 		{B21EBD4E-1863-46E5-AD86-D33A4A9ABDB1}.Release|x86.Build.0 = Release|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Debug|x64.Build.0 = Debug|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Debug|x86.Build.0 = Debug|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Release|x64.ActiveCfg = Release|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Release|x64.Build.0 = Release|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Release|x86.ActiveCfg = Release|Any CPU
+		{13FF9062-2284-484F-A73F-287DE396E92B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,6 +218,7 @@ Global
 		{B09C3713-7445-454D-9F44-8BBD6DB58D90} = {6B5E8DD5-7CDE-5DCD-DBFC-024B64A4D11F}
 		{0AD10D6B-9D3D-40C2-B010-02D58CECAA87} = {6B5E8DD5-7CDE-5DCD-DBFC-024B64A4D11F}
 		{B21EBD4E-1863-46E5-AD86-D33A4A9ABDB1} = {9A059CF2-CB8C-6AD0-B806-FC2A4BC431C3}
+		{13FF9062-2284-484F-A73F-287DE396E92B} = {9A059CF2-CB8C-6AD0-B806-FC2A4BC431C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C3E331F-D6FC-47D6-A075-2FAAB6B3B085}
