@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 namespace Builder;
 
@@ -36,16 +36,18 @@ public class Car
     }
 
     public void AddPart(string part)
-    { 
+    {
         _parts.Add(part);
     }
 
     public override string ToString()
     {
         var sb = new StringBuilder();
-        foreach (string part in _parts) {
+        foreach (string part in _parts)
+        {
             sb.Append($" Car of type {_carType} has part {part}.  ");
         }
+
         return sb.ToString();
     }
 }
@@ -61,7 +63,8 @@ public abstract class CarBuilder
 
     public Car Car { get; private set; }
 
-    public CarBuilder(string carType) { 
+    public CarBuilder(string carType)
+    {
         Car = new Car(carType);
     }
 }
@@ -124,7 +127,7 @@ public class Garage
         _builder.BuildFrame();
     }
 
-    
+
     public void Show()
     {
         Console.WriteLine(_builder?.Car.ToString());
