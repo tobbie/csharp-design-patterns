@@ -2,7 +2,8 @@ using ConsoleClient.Examples;
 
 //Test Patterns
 
-SingletonDemo.Run();
+TemplateMethodDemo.Run();
+//SingletonDemo.Run();
 
 //PrototypeDemo.Run();
 
