@@ -1,4 +1,4 @@
-﻿namespace Prototype;
+namespace Prototype;
 using System.Text.Json;
 
 /**

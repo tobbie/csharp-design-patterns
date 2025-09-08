@@ -1,4 +1,4 @@
-﻿namespace Singleton;
+namespace Singleton;
 using static System.Console;
 
 /// <summary>

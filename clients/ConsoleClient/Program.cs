@@ -1,4 +1,4 @@
-﻿using ConsoleClient.Examples;
+using ConsoleClient.Examples;
 
 //Test Patterns
 
