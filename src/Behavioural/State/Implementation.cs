@@ -33,8 +33,15 @@ public class RegularState : BankAccountState
 
     public override void Deposit(decimal amount)
     {
-        WriteLine($"In {GetType()}, depositing amount {amount} to balance");
+        WriteLine($"In {GetType()}, depositing amount {amount} to balance {Balance}");
         Balance += amount;
+       
+
+        if (Balance >= 1000)
+        {
+            //change to gold state
+            BankAccount.BankAccountState = new GoldState(BankAccount, Balance);
+        }
     }
 
     public override void Withdraw(decimal amount)
@@ -61,7 +68,7 @@ public class OverDrawnState : BankAccountState
         WriteLine($"In {GetType()}, depositing amount {amount} to balance");
         Balance += amount;
 
-        //change state to regularwhen balance is zero or greater
+        //change state to regular when balance is zero or greater
         if (Balance >= 0)
             BankAccount.BankAccountState = new RegularState(BankAccount, Balance);
     }
@@ -72,6 +79,38 @@ public class OverDrawnState : BankAccountState
         WriteLine($"In {GetType()} cannot withdraw, balance {Balance}");
     }
 }
+
+public class GoldState : BankAccountState
+{
+    public GoldState(BankAccount bankAccount, decimal balance)
+    {
+        BankAccount = bankAccount;
+        Balance = balance;
+    }
+    public override void Deposit(decimal amount)
+    {
+        WriteLine($"In {GetType()}, depositing {amount} + 10% bonus: {amount / 10}");
+        Balance += (amount + (amount / 10));
+    }
+
+    public override void Withdraw(decimal amount)
+    {
+        WriteLine($"In {GetType()}, withdrawing amount  {amount} from {Balance}");
+        Balance -= amount;
+
+        if (Balance < 1000 && Balance >= 0)
+        {
+            //change state back to regular
+            BankAccount.BankAccountState = new RegularState(BankAccount, Balance);
+        }
+        else if (Balance < 0)
+        {
+            //change state to overdrawn
+            BankAccount.BankAccountState = new OverDrawnState(BankAccount, Balance);
+        }
+    }
+}
+
 public class BankAccount
 {
     public BankAccountState BankAccountState { get; set; }

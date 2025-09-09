@@ -1,8 +1,8 @@
 using ConsoleClient.Examples;
 
 //Test Patterns
-
-TemplateMethodDemo.Run();
+StateDemo.Run();
+//TemplateMethodDemo.Run();
 //SingletonDemo.Run();
 
 //PrototypeDemo.Run();
