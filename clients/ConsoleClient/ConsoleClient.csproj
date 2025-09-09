@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Behavioural\Observer\Observer.csproj" />
+    <ProjectReference Include="..\..\src\Behavioural\State\State.csproj" />
     <ProjectReference Include="..\..\src\Behavioural\Strategy\Strategy.csproj" />
     <ProjectReference Include="..\..\src\Behavioural\TemplateMethod\TemplateMethod.csproj" />
     <ProjectReference Include="..\..\src\Creational\AbstractFactory\AbstractFactory.csproj" />
