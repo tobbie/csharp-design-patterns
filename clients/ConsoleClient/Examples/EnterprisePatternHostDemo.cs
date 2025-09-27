@@ -17,8 +17,10 @@ namespace ConsoleClient.Examples
                 .Build();
 
             using var scope = host.Services.CreateScope();
-            var demoService = scope.ServiceProvider.GetRequiredService<RepositoryDemoService>();
-            await demoService.RunAsync();
+            // var demoService = scope.ServiceProvider.GetRequiredService<RepositoryDemoService>();
+            var unitOfWorkService = scope.ServiceProvider.GetRequiredService<UnitOfWorkDemoService>();
+            await unitOfWorkService.RunAsync();
+            //await demoService.RunAsync();
         }
     }
 }
