@@ -7,7 +7,7 @@ namespace EnterprisePatterns.Repositories
         Task<T?> GetById(int id);
         Task<IEnumerable<T>> GetAll();
 
-        void Add(T entity);
+        Task AddAsync(T entity);
 
         void Update(T entity);
 

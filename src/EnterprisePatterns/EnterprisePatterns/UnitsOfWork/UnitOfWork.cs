@@ -1,25 +1,56 @@
 ﻿using System;
 
 using EnterprisePatterns.DbContexts;
+using EnterprisePatterns.Repositories;
 
 namespace EnterprisePatterns.UnitsOfWork
 {
-    public abstract class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly OrderDbContext _dbContext;
+        private readonly Dictionary<Type, object> _repositories = new();
 
-        protected UnitOfWork(OrderDbContext dbContext)
+        public UnitOfWork(OrderDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public async Task CommitAsync()
+
+        public IRepository<T> Repository<T>() where T : class
         {
-            await _dbContext.SaveChangesAsync();
+            if (_repositories.ContainsKey(typeof(T)))
+            {
+                return (IRepository<T>)_repositories[typeof(T)];
+            }
+
+            var repoInstance = new GenericEFCoreRepository<T>(_dbContext);
+            _repositories.Add(typeof(T), repoInstance);
+            return repoInstance;
         }
 
-        public void RollBack()
-        {
-            _dbContext.ChangeTracker.Clear();
-        }
+        public async Task<int> CommitAsync() => await _dbContext.SaveChangesAsync();
+
+        public void Rollback() => _dbContext.ChangeTracker.Clear();
+
+       // public async ValueTask DisposeAsync() => await _dbContext.DisposeAsync();
     }
+
+
+    //public abstract class UnitOfWork : IUnitOfWork
+    //{
+    //    private readonly OrderDbContext _dbContext;
+
+    //    protected UnitOfWork(OrderDbContext dbContext)
+    //    {
+    //        _dbContext = dbContext;
+    //    }
+    //    public async Task CommitAsync()
+    //    {
+    //        await _dbContext.SaveChangesAsync();
+    //    }
+
+    //    public void RollBack()
+    //    {
+    //        _dbContext.ChangeTracker.Clear();
+    //    }
+    //}
 }

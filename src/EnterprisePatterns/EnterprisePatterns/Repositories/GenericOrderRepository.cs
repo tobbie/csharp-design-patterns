@@ -8,9 +8,9 @@ namespace EnterprisePatterns.Repositories
     {
         private readonly OrderDbContext _dbContext = dbContext;
 
-        public void Add(Order entity)
+        public async Task AddAsync(Order entity)
         {
-            _dbContext.Orders.Add(entity);
+             await _dbContext.Orders.AddAsync(entity);
         }
 
         public void Delete(Order entity)

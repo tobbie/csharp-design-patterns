@@ -17,9 +17,9 @@ namespace EnterprisePatterns.Repositories
             _dbSet = _dbContext.Set<T>();
         }
 
-        public void Add(T entity)
+        public async Task AddAsync(T entity)
         {
-            _dbSet.Add(entity);
+            await _dbSet.AddAsync(entity);
         }
 
         public void Delete(T entity)
@@ -39,8 +39,7 @@ namespace EnterprisePatterns.Repositories
 
         //should not be on repo if uow pattern is used.
         public async Task SaveChanges()
-        {
-           
+        {  
             await _dbContext.SaveChangesAsync();
         }
 
