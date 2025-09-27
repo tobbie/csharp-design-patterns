@@ -1,7 +1,9 @@
 using ConsoleClient.Examples;
 
 //Test Patterns
-StateDemo.Run();
+
+await EnterprisePatternHostDemo.RunAsync(args);
+//StateDemo.Run();
 //TemplateMethodDemo.Run();
 //SingletonDemo.Run();
 

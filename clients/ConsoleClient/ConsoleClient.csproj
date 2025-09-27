@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\Behavioural\Observer\Observer.csproj" />
     <ProjectReference Include="..\..\src\Behavioural\State\State.csproj" />
     <ProjectReference Include="..\..\src\Behavioural\Strategy\Strategy.csproj" />
@@ -17,6 +24,7 @@
     <ProjectReference Include="..\..\src\Creational\FactoryMethod\FactoryMethod.csproj" />
     <ProjectReference Include="..\..\src\Creational\Prototype\Prototype.csproj" />
     <ProjectReference Include="..\..\src\Creational\Singleton\Singleton.csproj" />
+    <ProjectReference Include="..\..\src\EnterprisePatterns\EnterprisePatterns\EnterprisePatterns.csproj" />
     <ProjectReference Include="..\..\src\Structural\Adapter\Adapter.csproj" />
     <ProjectReference Include="..\..\src\Structural\Bridge\Bridge.csproj" />
     <ProjectReference Include="..\..\src\Structural\Decorator\Decorator.csproj" />

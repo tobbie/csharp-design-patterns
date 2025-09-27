@@ -54,3 +54,8 @@ TestResult.xml
 nunit-*.xml
 
 .vs/
+
+# Ignore SQL Lite files
+*.db
+*.db-shm
+*.db-wal
