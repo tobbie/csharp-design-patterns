@@ -7,7 +7,8 @@ namespace EnterprisePatterns.DemoServices
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public UnitOfWorkDemoService(IUnitOfWork unitOfWork) // can also inject specific repo here if you need it (IOrderLineRepository)
+        public UnitOfWorkDemoService(IUnitOfWork unitOfWork) 
+            // can also inject specific repo here if you need it (IOrderLineRepository)
         {
             _unitOfWork = unitOfWork;
         }
