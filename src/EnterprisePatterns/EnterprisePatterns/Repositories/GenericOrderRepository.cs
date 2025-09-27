@@ -28,6 +28,7 @@ namespace EnterprisePatterns.Repositories
             return await _dbContext.Orders.FindAsync(id);
         }
 
+        //should not be on repo if uow pattern is used.
         public async Task SaveChanges()
         {
             await _dbContext.SaveChangesAsync();

@@ -4,6 +4,7 @@ using EnterprisePatterns.DbContexts;
 using EnterprisePatterns.DemoServices;
 using EnterprisePatterns.Entities;
 using EnterprisePatterns.Repositories;
+using EnterprisePatterns.UnitsOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,7 @@ namespace EnterprisePatterns
           // services.AddScoped<IRepository<Order>, GenericOrderRepository>();
             services.AddScoped<IRepository<Order>, GenericEFCoreRepository<Order>>();
             services.AddScoped<IOrderLineRepository, OrderLineRepository>();
+            services.AddScoped<CreateOrderWithOrderLinesUnitOfWork>();
 
 
             return services;
