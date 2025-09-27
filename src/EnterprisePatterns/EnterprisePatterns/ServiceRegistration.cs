@@ -25,7 +25,9 @@ namespace EnterprisePatterns
                         .UseSqlite($"Data Source={dbPath}"));
             services.AddScoped<RepositoryDemoService>();
             services.AddScoped<UnitOfWorkDemoService>();
-            services.AddScoped<IRepository<Order>, GenericOrderRepository>();
+          // services.AddScoped<IRepository<Order>, GenericOrderRepository>();
+            services.AddScoped<IRepository<Order>, GenericEFCoreRepository<Order>>();
+            services.AddScoped<IOrderLineRepository, OrderLineRepository>();
 
 
             return services;
