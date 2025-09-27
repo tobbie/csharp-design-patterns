@@ -23,7 +23,7 @@ namespace EnterprisePatterns.DemoServices
 
 
                 OrderLine orderLine = new("Skirt", 1) { OrderId = order.Id };
-                _orderLineRepository.Add(orderLine);
+               await  _orderLineRepository.AddAsync(orderLine);
 
                 await _orderLineRepository.SaveChanges();
 

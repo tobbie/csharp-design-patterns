@@ -1,9 +1,20 @@
-﻿namespace EnterprisePatterns.UnitsOfWork
+﻿using EnterprisePatterns.Repositories;
+
+namespace EnterprisePatterns.UnitsOfWork
 {
+
     public interface IUnitOfWork
     {
-        Task CommitAsync();
-        void RollBack();
-
+        IRepository<T> Repository<T>() where T : class;
+        Task<int> CommitAsync();
+        void Rollback();
     }
+
+
+    //public interface IUnitOfWork
+    //{
+    //    Task CommitAsync();
+    //    void RollBack();
+
+    //}
 }

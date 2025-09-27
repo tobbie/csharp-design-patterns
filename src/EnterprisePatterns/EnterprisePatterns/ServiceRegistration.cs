@@ -24,12 +24,21 @@ namespace EnterprisePatterns
             services.AddDbContext<OrderDbContext>
                         (options => options
                         .UseSqlite($"Data Source={dbPath}"));
-            services.AddScoped<RepositoryDemoService>();
-            services.AddScoped<UnitOfWorkDemoService>();
-          // services.AddScoped<IRepository<Order>, GenericOrderRepository>();
+            
+
+            // services.AddScoped<IRepository<Order>, GenericOrderRepository>();
             services.AddScoped<IRepository<Order>, GenericEFCoreRepository<Order>>();
             services.AddScoped<IOrderLineRepository, OrderLineRepository>();
-            services.AddScoped<CreateOrderWithOrderLinesUnitOfWork>();
+
+            // Register generic repository
+            services.AddScoped(typeof(IRepository<>), typeof(GenericEFCoreRepository<>));
+
+            // Register Unit of Work
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            // Demo services
+            services.AddScoped<RepositoryDemoService>();
+            services.AddScoped<UnitOfWorkDemoService>();
 
 
             return services;
