@@ -65,9 +65,51 @@ public class CalculateDiscountPercentage
         Assert.Equal(.10m, result);
     }
 
+    [Fact]
+    public void Returs10PercentForCustomerSecondPurchaseeOnBirthday()
+    {
+        var customer = CreateBirthdayCustomer("Jean Grey", 20, DateTime.Today.AddDays(-1), false);
+        var result = _discountCalculator.CalculateDiscountPercentage(customer);
+        Assert.Equal(.10m, result);
+    }
+
+    [Theory]
+    [InlineData(1, .05)]
+    [InlineData(2, .08)]
+    [InlineData(5, .10)]
+    [InlineData(10, .12)]
+    [InlineData(15, .15)]
+    public void ReturnsCorrectLoyaltyDiscountForLongTimeCustomer(int yearsAsCustomer, decimal expectedDiscount)
+    {
+        var customer = CreateCustomer("Sam Amadi",
+                          DEFAULT_AGE, DateTime.Today.AddYears(-yearsAsCustomer).AddDays(-1));
+        var result = _discountCalculator.CalculateDiscountPercentage(customer);
+        Assert.Equal(expectedDiscount, result);
+    }
+
+    [Theory]
+    [InlineData(1, .15)]
+    [InlineData(2, .18)]
+    [InlineData(5, .20)]
+    [InlineData(10, .22)]
+    [InlineData(15, .25)]
+    public void ReturnsCorrectLoyaltyDiscountForLongTimeCustomerOnTheirBirthday(int yearsAsCustomer, decimal expectedDiscount)
+    {
+        var customer = CreateBirthdayCustomer("Sam Amadi",
+                          DEFAULT_AGE, DateTime.Today.AddYears(-yearsAsCustomer).AddDays(-1));
+        var result = _discountCalculator.CalculateDiscountPercentage(customer);
+        Assert.Equal(expectedDiscount, result);
+    }
+
     private Customer CreateCustomer(string name, int age = DEFAULT_AGE, DateTime? dateOfFirstPurchase = null, bool isVeteran = false, DateTime? dateOfBirth = null)
     {
         return new Customer(name, dateOfFirstPurchase,
                         dateOfBirth ?? DateTime.Now.AddYears(-DEFAULT_AGE).AddDays(1), isVeteran);
+    }
+
+    private Customer CreateBirthdayCustomer(string name, int age = DEFAULT_AGE, DateTime? dateOfFirstPurchase = null, bool isVeteran = false, DateTime? dateOfBirth = null)
+    {
+        return new Customer(name, dateOfFirstPurchase,
+                        dateOfBirth ?? DateTime.Now.AddYears(-age), isVeteran);
     }
 }

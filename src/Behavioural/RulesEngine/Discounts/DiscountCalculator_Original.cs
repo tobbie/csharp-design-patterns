@@ -6,6 +6,11 @@ public class DiscountCalculator_Original
 {
     public decimal CalculateDiscountPercentage(Customer customer)
     {
+        bool isBirthday = customer.DateOfBirth.HasValue &&
+            customer.DateOfBirth.Value.Month == DateTime.Now.Month &&
+            customer.DateOfBirth.Value.Day == DateTime.Now.Day;
+
+
         if (!customer.DateOfFirstPurchase.HasValue)
         {
             return .15m;
@@ -14,26 +19,31 @@ public class DiscountCalculator_Original
         {
             if (customer.DateOfFirstPurchase.Value < DateTime.Now.AddYears(-15))
             {
+                if (isBirthday) return .25m;
                 return .15m;
             }
 
             if (customer.DateOfFirstPurchase.Value < DateTime.Now.AddYears(-10))
             {
+                if (isBirthday) return .22m;
                 return .12m;
             }
 
             if (customer.DateOfFirstPurchase.Value < DateTime.Now.AddYears(-5))
             {
+                if (isBirthday) return .20m;
                 return .10m;
             }
 
             if (customer.DateOfFirstPurchase.Value < DateTime.Now.AddYears(-2) && !customer.IsVetran)
             {
+                if (isBirthday) return .18m;
                 return .08m;
             }
 
             if (customer.DateOfFirstPurchase.Value < DateTime.Now.AddYears(-1) && !customer.IsVetran)
             {
+                if (isBirthday) return .15m;
                 return .05m;
             }
 
@@ -41,13 +51,17 @@ public class DiscountCalculator_Original
 
         if (customer.IsVetran)
         {
+            if (isBirthday) return .20m;
             return .10m;
         }
 
         if (customer.DateOfBirth < DateTime.Now.AddYears(-65))
         {
+            if (isBirthday) return .15m;
             return .05m;
         }
+
+        if (isBirthday) return .10m;
 
         return 0m;
     }
