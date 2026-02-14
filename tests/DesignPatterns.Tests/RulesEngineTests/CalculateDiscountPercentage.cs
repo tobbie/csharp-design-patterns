@@ -5,7 +5,7 @@ namespace DesignPatterns.Tests.RulesEngineTests;
 
 public class CalculateDiscountPercentage
 {
-    private DiscountCalculator_Original _discountCalculator = new DiscountCalculator_Original();
+    private DiscountCalculator _discountCalculator = new DiscountCalculator();
     const int DEFAULT_AGE = 30;
 
     [Fact]
@@ -100,6 +100,51 @@ public class CalculateDiscountPercentage
         var result = _discountCalculator.CalculateDiscountPercentage(customer);
         Assert.Equal(expectedDiscount, result);
     }
+
+    [Fact]
+    public void Elderly_NotBirthday_Returns_5Percent()
+    {
+        // Arrange
+        var calculator = new DiscountCalculator_Original();
+        // older than 65 but not same month/day as today
+        var dateOfBirth = DateTime.Now.AddYears(-66).AddDays(1);
+        var dateOfFirstPurchase = DateTime.Now;
+        var customer = new Customer("Elder Not Birthday", dateOfFirstPurchase, dateOfBirth, isVetran: false);
+
+        // Act
+        var discount = calculator.CalculateDiscountPercentage(customer);
+
+        // Assert
+        Assert.Equal(0.05m, discount);
+    }
+
+    [Fact]
+    public void Elderly_OnBirthday_Returns_15Percent()
+    {
+        // Arrange
+        var calculator = new DiscountCalculator_Original();
+        var dateOfBirth = DateTime.Now.AddYears(-66); // older than 65 and same month/day => birthday
+        var dateOfFirstPurchase = DateTime.Now; // recent to avoid earlier branches
+        var customer = new Customer("Elder Birthday", dateOfFirstPurchase, dateOfBirth, isVetran: false);
+
+        // Act
+        var discount = calculator.CalculateDiscountPercentage(customer);
+
+        // Assert
+        Assert.Equal(0.15m, discount);
+    }
+
+    [Fact]
+    public void Return10PercentOnCustomerBirthday()
+    {
+        var customer = CreateBirthdayCustomer("Sam Amadi",
+                         DEFAULT_AGE, DateTime.Today);
+        var result = _discountCalculator.CalculateDiscountPercentage(customer);
+
+        Assert.Equal(.10m, result);
+
+    }
+
 
     private Customer CreateCustomer(string name, int age = DEFAULT_AGE, DateTime? dateOfFirstPurchase = null, bool isVeteran = false, DateTime? dateOfBirth = null)
     {

@@ -15,4 +15,8 @@ public class Customer
     public DateTime? DateOfFirstPurchase { get; private set; }
     public DateTime? DateOfBirth { get; private set; }
     public bool IsVetran { get; private set; }
+
+    public bool IsBirthDay => DateOfBirth.HasValue &&
+                DateOfBirth.Value.Month == DateTime.Now.Month &&
+                DateOfBirth.Value.Day == DateTime.Now.Day;
 }

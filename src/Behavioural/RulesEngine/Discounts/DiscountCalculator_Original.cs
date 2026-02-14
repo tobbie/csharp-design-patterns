@@ -4,16 +4,18 @@ namespace RulesEngine.Discounts;
 
 public class DiscountCalculator_Original
 {
-    public decimal CalculateDiscountPercentage(Customer customer)
+    public decimal CalculateDiscountPercentage(Customer customer) // customer is system input or context
     {
         bool isBirthday = customer.DateOfBirth.HasValue &&
             customer.DateOfBirth.Value.Month == DateTime.Now.Month &&
             customer.DateOfBirth.Value.Day == DateTime.Now.Day;
 
+        decimal discount = 0m;
+
 
         if (!customer.DateOfFirstPurchase.HasValue)
         {
-            return .15m;
+            discount = .15m;
         }
         else
         {
@@ -58,11 +60,11 @@ public class DiscountCalculator_Original
         if (customer.DateOfBirth < DateTime.Now.AddYears(-65))
         {
             if (isBirthday) return .15m;
-            return .05m;
+            return Math.Max(discount, .05m);
         }
 
         if (isBirthday) return .10m;
 
-        return 0m;
+        return discount;
     }
 }
