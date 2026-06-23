@@ -72,6 +72,19 @@ public class HtmlReport : IReport
     public string GetFormat() => "Html";
 }
 
+public class XmlReport : IReport
+{
+    public void Generate()
+    {
+        Console.WriteLine("Creating XML report...");
+        // Excel-specific logic here
+    }
+    public void Save(string location)
+    {
+        Console.WriteLine($"Saving to {location}.xml");
+    }
+    public string GetFormat() => "Xml";
+}
 
 
 // Creator
@@ -121,6 +134,7 @@ public class GenericReportFactory : ReportFactory
             "pdf" => new PdfReport(),
             "excel" => new ExcelReport(),
             "html" => new HtmlReport(),
+            "xml" => new XmlReport(),
             _ => throw new ArgumentException("Unknown report type")
         };
     }
