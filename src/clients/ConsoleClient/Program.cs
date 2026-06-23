@@ -2,14 +2,18 @@ using ConsoleClient.Examples;
 
 //Test Patterns
 
-await EnterprisePatternHostDemo.RunAsync(args);
+//await EnterprisePatternHostDemo.RunAsync(args);
 //StateDemo.Run();
 //TemplateMethodDemo.Run();
 //SingletonDemo.Run();
 
 //PrototypeDemo.Run();
 
-//FactoryMethodDemo.Run();
+while (true)
+{
+    FactoryMethodDemo.Run();
+    Thread.Sleep(1000);
+}
 //FacadeDemo.Run();
 //AdapterDemo.Run();
 //BuilderDemo.Run();

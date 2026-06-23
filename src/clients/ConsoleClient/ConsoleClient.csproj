@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Patterns\Behavioural\Observer\Observer.csproj" />
+    <ProjectReference Include="..\..\Patterns\Behavioural\RulesEngine\RulesEngine.csproj" />
+    <ProjectReference Include="..\..\Patterns\Behavioural\State\State.csproj" />
+    <ProjectReference Include="..\..\Patterns\Behavioural\Strategy\Strategy.csproj" />
+    <ProjectReference Include="..\..\Patterns\Behavioural\TemplateMethod\TemplateMethod.csproj" />
+    <ProjectReference Include="..\..\Patterns\Creational\AbstractFactory\AbstractFactory.csproj" />
+    <ProjectReference Include="..\..\Patterns\Creational\Builder\Builder.csproj" />
+    <ProjectReference Include="..\..\Patterns\Creational\FactoryMethod\FactoryMethod.csproj" />
+    <ProjectReference Include="..\..\Patterns\Creational\Prototype\Prototype.csproj" />
+    <ProjectReference Include="..\..\Patterns\Creational\Singleton\Singleton.csproj" />
+    <ProjectReference Include="..\..\Patterns\EnterprisePatterns\EnterprisePatterns\EnterprisePatterns.csproj" />
+    <ProjectReference Include="..\..\Patterns\Structural\Adapter\Adapter.csproj" />
+    <ProjectReference Include="..\..\Patterns\Structural\Bridge\Bridge.csproj" />
+    <ProjectReference Include="..\..\Patterns\Structural\Decorator\Decorator.csproj" />
+    <ProjectReference Include="..\..\Patterns\Structural\Facade\Facade.csproj" />
+  </ItemGroup>
+
+</Project>
